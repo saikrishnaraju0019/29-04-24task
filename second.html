@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      table,
+      tr,
+      td {
+        border: 2px solid white;
+        border-collapse: collapse;
+        height: 100%;
+        color: white;
+      }
+
+      img {
+        height: 200px;
+      }
+
+      .container {
+        height: 50vh;
+        width: 50vw;
+        border: 4px solid blueviolet;
+        background-color: black;
+      }
+      button {
+        background-color: blueviolet;
+        color: white;
+        height: 40px;
+        width: 200px;
+        font-family: "Times New Roman";
+        font-weight: bolder;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+      <div class="container">
+        <table></table>
+      </div>
+      <button>Add to Cart</button>
+    </center>
+    <script>
+      var b = JSON.parse(localStorage.getItem("d"));
+      var ta = document.getElementsByTagName("table");
+      var tr = document.createElement("tr");
+
+      var td0 = document.createElement("td");
+      td0.innerText = b.title;
+
+      var td1 = document.createElement("td");
+      td1.innerText = b.description;
+
+      var td2 = document.createElement("td");
+      td2.innerText = "inr:-" + b.price;
+
+      var td3 = document.createElement("td");
+      var image = document.createElement("img");
+      image.setAttribute("src", b.image);
+      td3.appendChild(image);
+
+      tr.appendChild(td0);
+      tr.appendChild(td1);
+      tr.appendChild(td2);
+      tr.appendChild(td3);
+      ta[0].appendChild(tr);
+    </script>
+  </body>
+</html>
